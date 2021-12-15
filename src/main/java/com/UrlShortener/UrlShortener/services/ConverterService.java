@@ -1,2 +1,6 @@
-package com.UrlShortener.UrlShortener.services;public class ConverterService {
+package com.UrlShortener.UrlShortener.services;
+
+public interface ConverterService {
+
+    String urlConverter(String url);
 }
