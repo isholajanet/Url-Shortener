@@ -1,16 +1,22 @@
 package com.UrlShortener.UrlShortener.services;
 
-import com.UrlShortener.UrlShortener.models.Converter;
+import com.UrlShortener.UrlShortener.Repository.UrlRepository;
+import com.UrlShortener.UrlShortener.models.Url;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-public class ConverterServiceImpl implements ConverterService{
-    private ArrayList <Converter> converter = new ArrayList<>();
+@Service
+public class UrlServiceImpl implements UrlService {
+    @Autowired
+    private UrlRepository urlRepository;
     @Override
-    public String urlConverter(String url) {
-        Converter newConverter = Converter.builder().url(url).build();
+    public String save(String url) {
+        Url newConverter = Url.builder().url(url).build();
         System.out.println(newConverter.getId());
-        converter.add(newConverter);
+        urlRepository.save(newConverter);
         return newConverter.getId();
     }
+
 }

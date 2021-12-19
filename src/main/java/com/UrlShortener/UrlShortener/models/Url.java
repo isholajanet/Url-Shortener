@@ -1,12 +1,22 @@
 package com.UrlShortener.UrlShortener.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 @Builder
-public class Converter {
-
-    private final String id = generateRandomId(10);
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+public class Url {
+    @Id
+    private final String id = generateRandomId(8);
+    @Column(nullable = false)
     private String url;
 
     private String generateRandomId(int number){

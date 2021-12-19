@@ -1,6 +1,9 @@
 package com.UrlShortener.UrlShortener.services;
 
-public interface ConverterService {
+import org.springframework.stereotype.Service;
 
-    String urlConverter(String url);
+@Service
+public interface UrlService {
+
+    String save(String url);
 }
