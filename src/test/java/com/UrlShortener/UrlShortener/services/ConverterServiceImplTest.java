@@ -18,9 +18,9 @@ class ConverterServiceImplTest {
 
     @Test
     void saveUrlTest(){
-       String result = urlService.save("www.google.com");
-       assertThat(result).isNotNull();
-       System.out.println(result);
+       Url url = urlService.save("www.google.com");
+       assertThat(url).isNotNull();
+       System.out.println(url.getId());
     }
     @Test
     void saveUrlTestWithAnObject(){

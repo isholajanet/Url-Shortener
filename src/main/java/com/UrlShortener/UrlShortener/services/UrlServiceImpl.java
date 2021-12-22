@@ -14,17 +14,17 @@ public class UrlServiceImpl implements UrlService {
     private UrlRepository urlRepository;
 
     @Override
-    public String save(Url url) {
+    public Url save(Url url) {
         urlRepository.save(url);
-        return url.getId();
+        return url;
     }
 
     @Override
-    public String save(String url) {
+    public Url save(String url) {
         Url newConverter = Url.builder().url(url).build();
         System.out.println(newConverter.getId());
         urlRepository.save(newConverter);
-        return newConverter.getId();
+        return newConverter;
     }
 
     @Override
