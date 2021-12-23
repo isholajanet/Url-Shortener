@@ -18,21 +18,22 @@ class ConverterServiceImplTest {
 
     @Test
     void saveUrlTest(){
-       Url url = urlService.save("www.google.com");
+       Url url = Url.builder().link("www.google.com").build();
+       urlService.save(url);
        assertThat(url).isNotNull();
-       System.out.println(url.getId());
+
     }
     @Test
     void saveUrlTestWithAnObject(){
-        Url url = Url.builder().url("www.facebook.com").build();
+        Url url = Url.builder().link("www.facebook.com").build();
         urlService.save(url);
         assertThat(url.getId()).isNotNull();
-        assertThat(url.getUrl()).isEqualTo("www.facebook.com");
+        assertThat(url.getLink()).isEqualTo("www.facebook.com");
     }
 
     @Test
     void findByIdTest(){
-        Url url = Url.builder().url("www.talent.com").build();
+        Url url = Url.builder().link("www.talentq.com").build();
         urlService.save(url);
         Url foundedUrl = urlService.findById(url.getId());
         assertThat(foundedUrl).isNotNull();
@@ -40,18 +41,14 @@ class ConverterServiceImplTest {
 
     @Test
     void findAllUrlTest(){
-//        Url url = Url.builder().url("www.twitter.com").build();
-//        urlService.save(url);
         assertThat(urlService.findAll()).isNotNull();
-        assertThat(urlService.findAll().size()).isEqualTo(4);
+        assertThat(urlService.findAll().size()).isEqualTo(2);
     }
     @Test
     void deleteUrlById(){
-        Url url = Url.builder().url("www.talent.com").build();
-        urlService.save(url);
-        assertThat(urlService.findAll().size()).isEqualTo(5);
-        urlService.delete(url.getId());
-        assertThat(urlService.findAll().size()).isEqualTo(4);
+        assertThat(urlService.findAll().size()).isEqualTo(2);
+        urlService.delete(2);
+        assertThat(urlService.findAll().size()).isEqualTo(1);
 
     }
 

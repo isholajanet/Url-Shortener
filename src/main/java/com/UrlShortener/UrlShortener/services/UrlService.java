@@ -9,8 +9,8 @@ import java.util.List;
 public interface UrlService {
 
     Url save(Url url);
-    Url save(String url);
-    Url findById(String id);
+    Url save(String link);
+    Url findById(long id);
     List<Url> findAll();
-    void delete(String id);
+    void delete(long id);
 }
