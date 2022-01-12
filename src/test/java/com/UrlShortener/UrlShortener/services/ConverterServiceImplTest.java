@@ -25,10 +25,10 @@ class ConverterServiceImplTest {
     }
     @Test
     void saveUrlTestWithAnObject(){
-        Url url = Url.builder().link("www.facebook.com").build();
+        Url url = Url.builder().link("https://github.com/isholajanet").build();
         urlService.save(url);
         assertThat(url.getId()).isNotNull();
-        assertThat(url.getLink()).isEqualTo("www.facebook.com");
+        assertThat(url.getLink()).isEqualTo("https://github.com/isholajanet");
     }
 
     @Test

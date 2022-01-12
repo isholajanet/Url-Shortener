@@ -31,13 +31,7 @@ public class UrlController {
         urlService.delete(id);
     }
 
-    @GetMapping("/redirect")
-    public ModelAndView redirectWithUsingForwardPrefix(ModelMap model, @PathVariable long id) {
-        Url url = urlService.findById(id);
-        model.addAttribute("attribute", url.getId());
-        return new ModelAndView("forward:/redirectedUrl", model);
-    }
-    @PostMapping("/{id}")
+    @GetMapping("/redirect/{id}")
     public RedirectView redirect(@PathVariable long id){
         Url url = urlService.findById(id);
         System.out.println(id);

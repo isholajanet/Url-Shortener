@@ -13,4 +13,6 @@ public interface UrlService {
     Url findById(long id);
     List<Url> findAll();
     void delete(long id);
+
+    Url findByShortUrl(String id);
 }
